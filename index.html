@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa Interior | Test de personalidad</title>
+  <meta
+    name="description"
+    content="Test de personalidad dividido por criterios psicológicos con perfil final y recomendaciones prácticas."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__content">
+        <span class="eyebrow">Test interactivo · JavaScript + HTML + CSS</span>
+        <h1>Mapa Interior</h1>
+        <p class="hero__lead">
+          Un test de personalidad por secciones psicológicas para detectar cómo te relacionas,
+          decides, organizas y gestionas tus emociones.
+        </p>
+        <div class="hero__badges">
+          <span>5 dimensiones</span>
+          <span>20 preguntas</span>
+          <span>Perfil final personalizado</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="info-panel">
+        <div class="info-card">
+          <h2>¿Qué vas a descubrir?</h2>
+          <ul class="feature-list">
+            <li><strong>Energía social:</strong> cómo tiendes a interactuar con los demás.</li>
+            <li><strong>Organización:</strong> tu estilo para planificar y sostener hábitos.</li>
+            <li><strong>Empatía:</strong> cómo conectas con otras personas.</li>
+            <li><strong>Estabilidad emocional:</strong> tu reacción frente a la presión.</li>
+            <li><strong>Apertura mental:</strong> tu curiosidad y flexibilidad ante lo nuevo.</li>
+          </ul>
+        </div>
+
+        <div class="info-card info-card--accent">
+          <h2>Cómo interpretar el resultado</h2>
+          <p>
+            El perfil no pretende etiquetarte de forma rígida: es una fotografía útil para entender
+            tus tendencias actuales y detectar fortalezas junto con áreas de crecimiento.
+          </p>
+        </div>
+      </aside>
+
+      <section class="app-card" aria-live="polite">
+        <div id="alert-box" class="alert" hidden></div>
+
+        <section id="welcome-screen" class="screen">
+          <div class="screen__intro">
+            <span class="screen__kicker">Bienvenido/a</span>
+            <h2>Empieza tu recorrido</h2>
+            <p>
+              Responde con sinceridad. No hay respuestas correctas o incorrectas: lo importante es
+              reflejar tu estilo habitual.
+            </p>
+          </div>
+
+          <div class="intro-grid">
+            <article class="intro-stat">
+              <span class="intro-stat__value">5</span>
+              <span class="intro-stat__label">secciones psicológicas</span>
+            </article>
+            <article class="intro-stat">
+              <span class="intro-stat__value">20</span>
+              <span class="intro-stat__label">preguntas en total</span>
+            </article>
+            <article class="intro-stat">
+              <span id="resume-counter" class="intro-stat__value">0%</span>
+              <span class="intro-stat__label">progreso guardado</span>
+            </article>
+          </div>
+
+          <div class="scale-preview">
+            <h3>Escala de respuesta</h3>
+            <div class="scale-preview__row">
+              <span>1 · Muy en desacuerdo</span>
+              <span>2 · En desacuerdo</span>
+              <span>3 · Neutral</span>
+              <span>4 · De acuerdo</span>
+              <span>5 · Muy de acuerdo</span>
+            </div>
+          </div>
+
+          <button id="start-button" class="button button--primary" type="button">
+            Comenzar test
+          </button>
+        </section>
+
+        <form id="test-form" class="screen" hidden novalidate>
+          <div class="progress-card">
+            <div class="progress-card__head">
+              <div>
+                <span class="screen__kicker">Progreso</span>
+                <h2 id="section-title">Sección</h2>
+              </div>
+              <div class="progress-card__meta">
+                <span id="section-counter">Sección 1 de 5</span>
+                <span id="question-counter">0 / 20 respondidas</span>
+              </div>
+            </div>
+
+            <p id="section-description" class="section-description"></p>
+
+            <div class="progress-bar" aria-hidden="true">
+              <div id="progress-fill" class="progress-bar__fill"></div>
+            </div>
+
+            <div id="section-tabs" class="section-tabs"></div>
+          </div>
+
+          <div id="question-list" class="question-list"></div>
+
+          <div class="actions">
+            <button id="prev-button" class="button button--secondary" type="button">
+              Anterior
+            </button>
+            <button id="next-button" class="button button--primary" type="button">
+              Siguiente sección
+            </button>
+          </div>
+        </form>
+
+        <section id="result-screen" class="screen" hidden>
+          <div class="result-header">
+            <span class="screen__kicker">Tu perfil</span>
+            <h2 id="result-title">Perfil de personalidad</h2>
+            <p id="result-tagline" class="result-tagline"></p>
+          </div>
+
+          <article class="result-hero">
+            <div>
+              <h3 id="archetype-name"></h3>
+              <p id="archetype-description"></p>
+            </div>
+            <div class="result-hero__badge">
+              <span>Dominante</span>
+              <strong id="primary-trait"></strong>
+            </div>
+          </article>
+
+          <section>
+            <h3>Resumen de tus dimensiones</h3>
+            <div id="traits-container" class="traits-container"></div>
+          </section>
+
+          <section class="result-grid">
+            <article class="result-box">
+              <h3>Lo que destaca en ti</h3>
+              <ul id="highlight-list" class="bullet-list"></ul>
+            </article>
+            <article class="result-box">
+              <h3>Claves para crecer</h3>
+              <ul id="growth-list" class="bullet-list"></ul>
+            </article>
+          </section>
+
+          <section class="result-box">
+            <h3>Lectura global</h3>
+            <div id="narrative-list" class="narrative-list"></div>
+          </section>
+
+          <div class="actions actions--result">
+            <button id="review-button" class="button button--secondary" type="button">
+              Revisar respuestas
+            </button>
+            <button id="restart-button" class="button button--primary" type="button">
+              Reiniciar test
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
+

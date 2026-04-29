@@ -1,0 +1,11 @@
+{
+  "name": "mapa-interior",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ./server.js",
+    "test": "node ./tests/scoring.test.js && node ./tests/server.test.js"
+  }
+}
+
