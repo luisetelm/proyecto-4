@@ -236,7 +236,7 @@ function renderResults() {
   elements.traitsContainer.innerHTML = Object.values(traitScores)
     .map(
       (trait) => `
-        <article class="trait-card">
+        <article class="trait-card trait-card--${trait.id}">
           <div class="trait-card__head">
             <h4>${trait.label}</h4>
             <span class="trait-card__score">${trait.score}%</span>

@@ -11,7 +11,7 @@ export const TRAIT_META = {
     id: "extraversion",
     label: "Energía social",
     shortLabel: "Social",
-    color: "linear-gradient(90deg, #8b5cf6, #a78bfa)",
+    color: "var(--trait-extraversion)",
     levels: {
       high: "Tiendes a expresarte con facilidad y a activarte en contacto con otras personas.",
       medium: "Alternas bien entre momentos de interacción y espacios más reservados.",
@@ -22,7 +22,7 @@ export const TRAIT_META = {
     id: "conscientiousness",
     label: "Organización",
     shortLabel: "Orden",
-    color: "linear-gradient(90deg, #22c55e, #4ade80)",
+    color: "var(--trait-conscientiousness)",
     levels: {
       high: "Te orientas a la planificación, el compromiso y la constancia.",
       medium: "Combinas estructura con flexibilidad según la situación.",
@@ -33,7 +33,7 @@ export const TRAIT_META = {
     id: "agreeableness",
     label: "Empatía",
     shortLabel: "Empatía",
-    color: "linear-gradient(90deg, #06b6d4, #67e8f9)",
+    color: "var(--trait-agreeableness)",
     levels: {
       high: "Das mucho valor a la cooperación, la sensibilidad y el cuidado del vínculo.",
       medium: "Puedes equilibrar cercanía emocional con firmeza cuando hace falta.",
@@ -44,7 +44,7 @@ export const TRAIT_META = {
     id: "emotionalStability",
     label: "Estabilidad emocional",
     shortLabel: "Estabilidad",
-    color: "linear-gradient(90deg, #f59e0b, #fbbf24)",
+    color: "var(--trait-emotionalStability)",
     levels: {
       high: "Normalmente mantienes la calma y recuperas el equilibrio con rapidez.",
       medium: "Tu nivel de autorregulación depende bastante del contexto y de la carga acumulada.",
@@ -55,7 +55,7 @@ export const TRAIT_META = {
     id: "openness",
     label: "Apertura mental",
     shortLabel: "Apertura",
-    color: "linear-gradient(90deg, #ec4899, #f472b6)",
+    color: "var(--trait-openness)",
     levels: {
       high: "Te mueven la curiosidad, la imaginación y el deseo de explorar perspectivas nuevas.",
       medium: "Te abres a lo nuevo cuando percibes sentido o utilidad en ello.",
